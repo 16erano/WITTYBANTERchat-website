@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WITTYBANTER CHAT</title>
+    
+    <style>
+        body {
+            /* Changer la couleur de fond de la page */
+            font-family: Arial, sans-serif; /* Choisir une police de caractères */
+        }
+
+        #tableau {
+            border-collapse: collapse; /* Pour fusionner les bordures des cellules */
+            margin: 20px; /* Marge autour du tableau */
+        }
+       
+        button {
+           background-color: #f7e604;
+           padding-top: 10px;
+           padding-bottom: 10px;
+           margin-left: 20px;
+           border-color: rgb(100, 240, 6);
+           border-radius: 10px;
+           color: rgb(177, 6, 106);
+           cursor: pointer;
+        }
+
+        #tableau td {
+            border: 1px solid #ccc; /* Bordures de cellules */
+            padding: 10px; /* Espace intérieur des cellules */
+            text-align: center; /* Centrer le texte dans les cellules */
+            background-color: #f3efe57a; /* Couleur de fond des cellules */
+            cursor: pointer; /* Curseur change lors du survol */
+        }
+
+        #message {
+            margin: 20px; /* Marge autour du message */
+        }
+
+         body {
+            background-color: rgb(255, 29, 115);/* Changer la couleur de fond de la page */
+            font-family: Arial, sans-serif; /* Choisir une police de caractères */
+        }
+        .messageBox {
+            margin: 20px; /* Marge autour du message */
+            padding: 10px; /* Espace intérieur du cadre */
+            border: 1px solid #ccc; /* Bordure du cadre */
+            border-radius: 5px; /* Coins arrondis */
+            background-color: #069afcc5; /* Couleur de fond du cadre */
+        }
+
+        #messageGenealogie, #messageLangue {
+            margin: 20px; /* Marge autour du message */
+        }
+        #messageLangue {
+            margin: 20px; /* Marge autour du message */
+        }
+     
+    </style>
+</head>
+<body>
+
+    <table id="tableau">
+        <tr>
+            <td>creativite</td>
+            <td>amusement</td>
+            <td>manipulation</td>
+            <td>reconnaissance</td>
+            <td>autorite</td>
+            <td>admiration</td>
+            <td>accomplissement</td>
+            <td>arrogance</td>
+        </tr>
+        <tr>								
+            <td>deprime</td>
+            <td>anxiete</td>
+            <td>ouverture</td>
+            <td>emphatie</td>
+            <td>passion</td>
+            <td>espoir</td>,
+            <td>hypocrisie</td>
+            <td>cruote</td>
+        </tr>
+        <tr>							
+            <td>desinteret</td>
+            <td>honte</td>
+            <td>negligence</td>
+            <td>enthousaisme</td>
+            <td>fierte</td>
+            <td>humilite</td>
+            <td>indignation</td>
+            <td>trahison</td>
+        </tr>
+        <tr>							
+          <td>desespoir</td>
+          <td>deception</td>
+          <td>suprise</td>
+          <td>amour</td>
+          <td>confiance</td>
+          <td>incertitude</td>
+          <td>mepris</td>
+          <td>rejet</td>
+        </tr>
+        <tr>							
+          <td>inferiorite</td>
+          <td>colere</td>
+          <td>persuation</td>
+          <td>optimisme</td>
+          <td>plaisir</td>
+          <td>pessimisme</td>
+          <td>regret</td>
+          <td>tristesse</td>
+        </tr>
+        <tr>							
+          <td>inutilite</td>
+          <td>inquietude</td>
+          <td>doute</td>
+          <td>joie</td>
+          <td>soulagement</td>
+          <td>jalousie</td>
+          <td>exclusion</td>
+          <td>humiliation</td>
+        </tr>
+        <tr>							
+            <td>impatience</td>
+            <td>confusion</td>
+            <td>perplexite</td>
+            <td>satisfaction</td>
+            <td>sympathie</td>
+            <td>peur</td>
+            <td>vulnerabilite</td>
+            <td>solitude</td>
+        </tr>
+        <tr>							
+          <td>frustration</td>
+          <td>ennui</td>
+          <td>curiosite</td>
+          <td>bienveillance</td>
+          <td>envie</td>
+          <td>calme</td>
+          <td>lassitude</td>
+          <td>rancune</td>
+        </tr>
+    </table>
+
+    <div id="message"></div>
+
+    <button id="bouton">EMOTIONS</button>
+    <div class="messageBox" id="messagebouton"></div>
+    
+    <button id="boutonLangue">TEMPERAMENT</button>
+    <div class="messageBox" id="messageLangue"></div>
+
+    <button id="boutonGenealogie">SUJECT DE DISCUSSION</button>
+    <div class="messageBox" id="messageGenealogie"></div>
+ 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tableau = document.getElementById('tableau');
+            const messageDiv = document.getElementById('message');
+            const bouton = document.getElementById('bouton');
+
+            bouton.addEventListener('click', function () {
+                const lignes = tableau.rows.length;
+                const colonnes = tableau.rows[0].cells.length;
+                const ligneAleatoire = Math.floor(Math.random() * lignes);
+                const colonneAleatoire = Math.floor(Math.random() * colonnes);
+                const valeurAleatoire = tableau.rows[ligneAleatoire].cells[colonneAleatoire].textContent;
+
+                const message = `"${valeurAleatoire}"`;
+                document.getElementById('messagebouton').textContent = message;
+                messagebouton.textContent = message;
+                messagebouton.classList.add('messageBox');
+            });
+        });
+
+      document.addEventListener('DOMContentLoaded', function () {
+          const boutonGenealogie = document.getElementById('boutonGenealogie');
+          const boutonLangue = document.getElementById('boutonLangue');
+          const body = document.body;
+
+          const continents = [
+                {
+                  nom: 'MOVIE PLACE',
+                  image: 'best-las-vegas-attractions-1536x688.jpg',
+                  pays: [
+                      {
+                          nom: 'REAL PLACES',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'VIRTUAL PLACES',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'SOUND',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'TASTE',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'TOUCH',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                            ]
+                        },
+                      {
+                          nom: 'OBJECTS',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                            ]
+                        }
+                        ],
+                },
+                {
+                 nom: 'MBTI',
+                 image: 'la_casa_de_papel__wallpaper__by_majinvietkenel_ddtwwxw-pre.jpg',
+                 pays: [
+                      {
+                          nom: 'PERSONALITY',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'CAPACITIES/SKILLS',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'HOBBIES',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'MEMORIES',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'SPIRITUALITY/WISH',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                            ]
+                        }
+                        ],
+                },
+                {      
+                  nom: 'CHEMISTRY',
+                  image: '1000_F_629009692_zGTW4IZgGZsk3ftm0vdJtJoK5kp5i8QT.jpg',
+                  pays: [
+                      {
+                          nom: 'TEASE',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'MISUNDERSTANDING',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'RIZZ',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: ' SELF AMUSEMENT',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: ' BAPTIZE',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                            ]
+                        }
+                        ],
+                },
+                {
+                 nom: 'PERSONAL GROWTH',
+                 image: '51-515060_100-dollar-bill-hd-hd-wallpaper-download.jpg',
+                 pays: [
+                      {
+                          nom: 'VISION',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'TEACHING',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'PERSUASION',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'SPEECH',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                          ]
+                      },
+                      {
+                          nom: 'ARGUMENT',
+                          villes: [  
+                              {
+                                  nom: ' question',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'response',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: ' statement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'request',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'judgement',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              },
+                              {
+                                  nom: 'common things',
+                                  rues: ['unpredictable/ THINK OUTSIDE OF THE BOX', 'switch topic to a complete different one', 'mirror someone/thing', 'gestes/signes/incoding message', 'act so freaky'],
+                                  voitures: ['positive', 'negative']
+                              }
+                            ]
+                        }
+                    ]       
+                }
+            ];
+
+          const langues = ['motivation', 'imaginary', 'farces', 'comic/funny', 'verite/mesonge', 'psychologie/psycho', 'Storytelling', 'tragedie'];
+
+          boutonGenealogie.addEventListener('click', function () {
+              const continentAleatoire = continents[Math.floor(Math.random() * continents.length)];
+              const paysAleatoire = continentAleatoire.pays[Math.floor(Math.random() * continentAleatoire.pays.length)];
+              const villeAleatoire = paysAleatoire.villes[Math.floor(Math.random() * paysAleatoire.villes.length)];
+              const rueAleatoire = villeAleatoire.rues[Math.floor(Math.random() * villeAleatoire.rues.length)];
+              const voitureAleatoire = villeAleatoire.voitures[Math.floor(Math.random() * villeAleatoire.voitures.length)];
+
+              body.style.backgroundImage = `url('${continentAleatoire.image}')`;
+              body.style.backgroundSize = 'cover'; // Couvrir tout le fond
+              body.style.backgroundPosition = 'center'; // Centrer le fond
+                
+
+              const message = `${paysAleatoire.nom}, ${villeAleatoire.nom}, ${rueAleatoire}, ${voitureAleatoire}`;
+              document.getElementById('messageGenealogie').textContent = message;
+              messageGenealogie.textContent = message;
+              messageGenealogie.classList.add('messageBox');
+          });
+
+          boutonLangue.addEventListener('click', function () {
+              const langueAleatoire = langues[Math.floor(Math.random() * langues.length)];
+              const message = `${langueAleatoire}`;
+              document.getElementById('messageLangue').textContent = message;
+              messageLangue.textContent = message;
+              messageLangue.classList.add('messageBox');
+          });
+    });
+    </script>
+
+</body>
+</html>
